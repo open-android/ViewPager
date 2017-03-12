@@ -25,6 +25,7 @@
 	    }
 	}
 
+
 ![](http://oi5nqn6ce.bkt.clouddn.com/itheima/booster/code/jitpack.png)
 	
 
@@ -47,7 +48,7 @@
 
 就像上面这样，只需要设置`app:orientation`属性，该属性可选值为:`vertical`和`horizontal`，分别代表竖直方向上滑动和水平方向上滑动。
 
-#### java代码
+### 也可以使用java代码
 
 ```
 mViewPager.setDirection(YViewPager.VERTICAL);
@@ -58,3 +59,27 @@ mViewPager.setDirection(YViewPager.HORIZONTAL);
 
 具体意思同上
 注意，推荐在XML里面设置方向,请切记。
+
+### 使用的ViewPager的适配器的时候需要继承YFragmentPagerAdapter
+```
+class FragmentAdapter extends YFragmentPagerAdapter {
+
+        public FragmentAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
+
+
+    }
+
+```
+
